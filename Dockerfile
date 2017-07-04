@@ -16,7 +16,8 @@ RUN apt-get update && \
 	apt-get clean
 
 RUN useradd --uid 777 -m -g jitsi -G root -s /bin/bash jitsi-meet && \
-	echo "%root ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+	echo "%root ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+	echo "ALL ALL=NOPASSWD: /usr/sbin/service" >> /etc/sudoers
 
 #RUN adduser jitsi root
 #ENV PUBLIC_HOSTNAME=192.168.59.103
